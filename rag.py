@@ -1,4 +1,3 @@
-
 from uuid import uuid4
 from dotenv import load_dotenv
 from pathlib import Path
@@ -82,11 +81,15 @@ def generate_answer(query):
 
 if __name__ == "__main__":
     urls = [
-        "https://www.cnbc.com/2024/12/21/how-the-federal-reserves-rate-policy-affects-mortgages.html",
-        "https://www.cnbc.com/2024/12/20/why-mortgage-rates-jumped-despite-fed-interest-rate-cut.html"
+        "https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/",
     ]
 
-    process_urls(urls)
-    answer, sources = generate_answer("Tell me what was the 30 year fixed mortagate rate along with the date?")
+    for step in process_urls(urls):
+        print(step)
+
+    answer, sources = generate_answer(
+        "what is Page Component Objects? Explain with examples"
+    )
+
     print(f"Answer: {answer}")
     print(f"Sources: {sources}")
